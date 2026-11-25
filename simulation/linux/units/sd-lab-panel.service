@@ -1,0 +1,20 @@
+[Unit]
+Description=Simulation Lab panel (loopback 13400)
+After=sd-lab-api.service sd-lab-orchestrator.service sd-lab-bindings.socket
+Requires=sd-lab-api.service sd-lab-orchestrator.service sd-lab-bindings.socket
+
+[Service]
+User=sd-lab
+WorkingDirectory=/opt/sd-lab/simulation/lab-ui
+Environment=NODE_ENV=production NEXT_TELEMETRY_DISABLED=1 SIM_LAB_ALLOWED_PLANS=cohort:institucional
+BindPaths=/var/lib/sd-lab/reports:/opt/sd-lab/simulation/reports
+ReadWritePaths=/var/lib/sd-lab/reports /opt/sd-lab/simulation/reports
+ExecStart=/usr/bin/node node_modules/next/dist/bin/next start --hostname 127.0.0.1 --port 13400
+NoNewPrivileges=yes
+ProtectSystem=strict
+ProtectHome=yes
+PrivateTmp=yes
+UMask=0077
+KillMode=control-group
+IPAddressDeny=any
+IPAddressAllow=localhost

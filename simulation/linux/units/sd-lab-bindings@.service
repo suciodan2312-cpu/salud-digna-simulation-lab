@@ -1,0 +1,13 @@
+[Unit]
+Description=Verify fixed lab listener owners
+[Service]
+ExecStart=/usr/bin/python3 -I /opt/sd-lab/simulation/linux/bindings.py
+StandardInput=socket
+StandardOutput=socket
+StandardError=journal
+ProtectSystem=strict
+ProtectHome=yes
+PrivateTmp=yes
+NoNewPrivileges=yes
+CapabilityBoundingSet=CAP_SYS_PTRACE CAP_DAC_READ_SEARCH
+RestrictAddressFamilies=AF_UNIX AF_NETLINK AF_INET AF_INET6

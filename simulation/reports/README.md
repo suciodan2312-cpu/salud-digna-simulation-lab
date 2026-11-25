@@ -1,0 +1,3 @@
+# Resultados y manifiestos
+
+Los datasets, journals, resúmenes JSON/CSV y reportes HTML de esta carpeta quedan fuera de Git. Cada ejecución k6 exporta estadísticas numéricas agregadas de una lista de métricas conocida. La metadata incluye escenario, semilla, revisión, dataset y entorno. Una métrica ausente indica que el recorrido no aportó observaciones para ella. Los resultados por nombre de escenario se sobrescriben en ejecuciones posteriores; archiva las ejecuciones que desees conservar. La CLI funcional emite solo resultados de negocio agregados y diagnósticos de operación. Mantén fuera de los reportes secretos y respuestas crudas.

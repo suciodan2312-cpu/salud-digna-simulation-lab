@@ -1,0 +1,26 @@
+{
+  "name": "@salud-digna/simulation-lab",
+  "private": true,
+  "version": "0.1.0",
+  "packageManager": "pnpm@11.28.11",
+  "type": "module",
+  "scripts": {
+    "dev": "next dev --hostname 127.0.0.1 --port 13400",
+    "start": "next start --hostname 127.0.0.1 --port 13400",
+    "check": "next typegen && tsc --noEmit",
+    "build": "next build",
+    "test": "node --disable-warning=ExperimentalWarning --experimental-strip-types --test tests/*.test.ts"
+  },
+  "dependencies": {
+    "next": "16.4.6",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "lucide-react": "0.468.0"
+  },
+  "devDependencies": {
+    "typescript": "5.9.3",
+    "@types/node": "24.19.2",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0"
+  }
+}

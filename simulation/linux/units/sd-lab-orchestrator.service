@@ -1,0 +1,17 @@
+[Unit]
+Description=Simulation Lab orchestrator (loopback 13304)
+After=postgresql@18-simlab.service
+Requires=postgresql@18-simlab.service
+
+[Service]
+User=sd-lab-orch
+WorkingDirectory=/opt/sd-lab/services/apps/orchestrator
+ExecStart=/usr/bin/node --env-file=/etc/sd-lab/orchestrator.env --env-file=/etc/sd-lab/verifier.env dist/main.js
+NoNewPrivileges=yes
+ProtectSystem=strict
+ProtectHome=yes
+PrivateTmp=yes
+UMask=0077
+KillMode=control-group
+IPAddressDeny=any
+IPAddressAllow=localhost

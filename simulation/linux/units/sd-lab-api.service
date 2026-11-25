@@ -1,0 +1,17 @@
+[Unit]
+Description=Simulation Lab api (loopback 13104)
+After=postgresql@18-simlab.service
+Requires=postgresql@18-simlab.service
+
+[Service]
+User=sd-lab-api
+WorkingDirectory=/opt/sd-lab/services/apps/api
+ExecStart=/usr/bin/node --env-file=/etc/sd-lab/api.env --env-file=/etc/sd-lab/issuer.env dist/main.js
+NoNewPrivileges=yes
+ProtectSystem=strict
+ProtectHome=yes
+PrivateTmp=yes
+UMask=0077
+KillMode=control-group
+IPAddressDeny=any
+IPAddressAllow=localhost

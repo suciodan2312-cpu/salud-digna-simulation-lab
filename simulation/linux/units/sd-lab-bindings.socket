@@ -1,0 +1,8 @@
+[Unit]
+Description=Verify Simulation Lab listeners
+[Socket]
+ListenStream=/run/sd-lab-bindings.sock
+Accept=yes
+SocketGroup=sd-lab
+SocketMode=0660
+RemoveOnStop=yes
